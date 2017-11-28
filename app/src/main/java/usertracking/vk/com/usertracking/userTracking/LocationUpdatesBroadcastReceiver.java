@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * Created by cropinvinay on 12/12/17.
+ * Created by Vinay on 27/11/17.
  */
 
 public class LocationUpdatesBroadcastReceiver extends BroadcastReceiver {
