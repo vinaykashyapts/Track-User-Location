@@ -31,7 +31,7 @@ public class UserTrackingManager {
     }
 
     public void startTracking() {
-        
+
     }
 
     public void stopTracking() {
