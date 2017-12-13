@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.google.android.gms.location.LocationServices;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Vinay on 28/11/17.
@@ -234,6 +236,22 @@ public class UserTrackingManager {
     public boolean isDeviceLocationEnabled() {
         LocationManager locationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+    }
+
+    public void persistUserLocation(List<Location> locations) {
+
+        if (locations == null && locations.size() == 0)
+            return;
+
+        Log.d(TAG, "Saving location.." + locations.get(0));
+
+        Location currentLocation = locations.get(0);
+    }
+
+    public void cancelScheduledJob() {
+        Log.e(TAG, "Cancel tracking job..");
+        if (dispatcher != null)
+            dispatcher.cancel(LocationJobService.TAG);
     }
 }
 
